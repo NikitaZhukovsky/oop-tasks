@@ -29,6 +29,13 @@ class Sphere:
     def set_radius(self, radius):
         self.radius = radius
 
+    def is_point_inside(self, x, y, z):
+        distance = math.sqrt((x - self.x) ** 2 + (y - self.y) ** 2 + (z - self.z) ** 2)
+        if distance <= self.radius:
+            return True
+        else:
+            return False
+
 
 sphere = Sphere(5, 1, 2, 3)
 print(f"Параметры сферы: {sphere.get_info()}")
@@ -39,3 +46,5 @@ print(f"Центр сферы: {sphere.get_center()}")
 
 sphere.set_radius(10)
 print(f"Сфера с новым радиусом: {sphere.get_radius()}")
+
+print(f"Точка находится внутри сферы: {sphere.is_point_inside(5, 6, 8)}")
