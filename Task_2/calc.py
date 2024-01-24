@@ -1,29 +1,36 @@
 class Math:
-    def addition(self, first_number, second_number):
-        try:
+    @staticmethod
+    def addition(first_number, second_number):
+        if isinstance(first_number, (int, float)) and isinstance(second_number, (int, float)):
             return first_number + second_number
-        except TypeError:
+        else:
             print("Неверный ввод")
 
-    def subtraction(self, first_number, second_number):
-        try:
+    @staticmethod
+    def subtraction(first_number, second_number):
+        if isinstance(first_number, (int, float)) and isinstance(second_number, (int, float)):
             return first_number - second_number
-        except TypeError:
+        else:
             print("Неверный ввод")
 
-    def multiplication(self, first_number, second_number):
-        try:
+    @staticmethod
+    def multiplication(first_number, second_number):
+        if isinstance(first_number, (int, float)) and isinstance(second_number, (int, float)):
             return first_number * second_number
-        except TypeError:
+        else:
             print("Неверный ввод")
 
-    def division(self, first_number, second_number):
-        try:
-            if second_number != 0:
-                return first_number / second_number
-            else:
+    @staticmethod
+    def division(first_number, second_number):
+        if isinstance(first_number, (int, float)) and isinstance(second_number, (int, float)):
+            try:
+                if second_number != 0:
+                    return first_number / second_number
+                else:
+                    print("Деление на 0 недопустимо")
+            except ZeroDivisionError:
                 print("Деление на 0 недопустимо")
-        except TypeError:
+        else:
             print("Неверный ввод")
 
 
