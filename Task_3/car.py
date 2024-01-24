@@ -4,20 +4,31 @@ class Car:
         self.car_type = car_type
         self.year = year
 
-    def start_car(self):
+    @staticmethod
+    def start_car():
         print("Автомобиль заведён")
 
-    def turn_off_car(self):
+    @staticmethod
+    def turn_off_car():
         print("Автомобиль заглушен")
 
     def set_year(self, year):
-        self.year = year
+        if isinstance(year, int) and year > 0:
+            self.year = year
+        else:
+            raise ValueError("Год должен быть положительным целым числом.")
 
     def set_type(self, car_type):
-        self.car_type = car_type
+        if isinstance(car_type, str):
+            self.car_type = car_type
+        else:
+            raise ValueError("Ошибочный ввод!")
 
     def set_color(self, color):
-        self.color = color
+        if isinstance(color, str):
+            self.color = color
+        else:
+            raise ValueError("Ошибочный ввод!")
 
 
 car = Car("Black", "Universal", 2021)
