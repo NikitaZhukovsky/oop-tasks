@@ -3,7 +3,10 @@ import math
 
 class Sphere:
     def __init__(self, radius=1, x=0, y=0, z=0):
-        self.radius = radius
+        if isinstance(radius, (int, float)) and radius > 0:
+            self.radius = radius
+        else:
+            raise ValueError("Радиус должен быть положительным числом.")
         if all(isinstance(coord, (int, float)) for coord in (x, y, z)):
             self.x = x
             self.y = y
